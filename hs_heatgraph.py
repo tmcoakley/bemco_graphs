@@ -13,9 +13,9 @@ import numpy as np
 # _____________________________________________________________________________________ #
 
 
-hswapsurf = 'C:/Users/coakley.64/Downloads/bemco_hs.csv' # hotswap
-surfdata = 'C:/Users/coakley.64/Downloads/bemco_surfs.csv' # surfs
-turfiodata = 'C:/Users/coakley.64/Downloads/turf_bemco.csv' # turfios/turf
+hswapsurf = 'bemco_hs.csv' # hotswap
+surfdata = 'bemco_surfs.csv' # surfs
+turfiodata = 'turf_bemco.csv' # turfios/turf
 
 window_size = 100  # Adjust do what you want 
 
@@ -191,7 +191,7 @@ graphygraph(horzapusurfs, HDAQ_order, title='HPOL APU')
 graphygraph(vertapusurfs, VDAQ_order, title='VDAQ APU')
 graphygraph(horzhotswapsurfs, HDAQ_order, title = 'HPOL Hotswap')
 graphygraph(verthotswapsurfs, VDAQ_order, title = 'VPOL Hotswap')
-
+"""
 beep = []
 for key in horzapusurfs: 
     beep.append(horzapusurfs[key])
@@ -205,5 +205,8 @@ for key in vertapusurfs:
 
 for iter in range(len(bop)) : 
     graphygraph(bop[iter], VDAQ_order, error=[vertapuerr[iter], vertapuerrtime[iter]], title='VPOL APU', num = iter)
+
+
+"""
 
 
