@@ -185,57 +185,6 @@ def graphygraph(data, order, error = False, title = False, num = False):
     plt.show()
 
 
-
-def graphygraphtwo(apudata, hsdata,  error = False, title = False, num = False): 
-
-    _, ax = plt.subplots()
-      
-    i = 0
-
-    
-    apu_vals = np.array(list(apudata.values()))
-    hs_vals = np.array(list(hsdata.values()))
-    
-
-    # Plot filtered data
-    ax.plot(list(apudata.keys()), apu_vals, label = 'APU' )
-    ax.plot(list(hsdata.keys()), hs_vals, label = 'Hot Swap' )
-    ax.plot()
-
-    ax.xaxis.set_major_locator(matplotlib.dates.AutoDateLocator())  # Auto-adjust tick frequency
-    ax.xaxis.set_major_formatter(matplotlib.dates.DateFormatter('%I:%M:%S %p'))  # 12-hour format
-    ax.xaxis.set_label_text('Time')
-    ax.yaxis.set_label_text('Temperature (C)')
-
-    if title != False: 
-        plt.title(title)
-
-    plt.legend( ncol = 3, loc = 'upper right', fontsize = 10, frameon = True, edgecolor = 'black', 
-               facecolor = 'lightgray', columnspacing = 1.5 )
-
-    plt.show()
-
-"""for key in horzapusurfs: 
-   for iter in range(len(HDAQ_order)):
-        if str(HDAQ_order[iter]) in key and str(HDAQ_order): 
-            """
-new_dict = {}
-
-for old_key, new_key in zip(horzhotswapsurfs.keys(), HDAQ_order):
-    new_dict[str(new_key)] = horzhotswapsurfs[old_key]  # Map old values to new keys
-
-# Replace original dictionary
-horzhotswapsurfs = new_dict
-for key1 in horzhotswapsurfs:
-    for key2 in horzapusurfs:
-        for iter in range(len(HDAQ_order)): 
-            if str(HDAQ_order[iter]) in key1 and str(HDAQ_order[iter]) in key2: 
-                graphygraphtwo(horzapusurfs[key2], horzhotswapsurfs[key1])
-                
-
-
-
-"""
 graphygraph(horzapusurfs, HDAQ_order, title='HPOL APU')
 graphygraph(vertapusurfs, VDAQ_order, title='VDAQ APU')
 graphygraph(horzhotswapsurfs, HDAQ_order, title = 'HPOL Hotswap')
@@ -254,8 +203,4 @@ for key in vertapusurfs:
 
 for iter in range(len(bop)) : 
     graphygraph(bop[iter], VDAQ_order, error=[vertapuerr[iter], vertapuerrtime[iter]], title='VPOL APU', num = iter)
-
-
-"""
-
 
